@@ -1,0 +1,38 @@
+<div class="container">
+    <div class="row mt-4">
+      <div class="col">
+        <h2 ><i class="fas fa-user-alt"></i><span class="ps-2">Customers</span></h2>
+      </div>
+    </div>
+    <div class="row mt-4 mb-3">
+        <div class="col ">
+            <a  class="float-right" href="#" routerLink="/Add"><i class="fas fa-plus"></i> New Customer </a>
+        </div>
+        <div class="col ms-5">
+            <label  class="form-label">Filter :</label>
+            <input type="text" class="form-control" [(ngModel)]="name" (input)="search()">
+        </div>
+    </div>
+    <div class="row mt-5 mb-5">
+        <div class="col-lg-3 mt-5" *ngFor="let customer of customersList">
+            <div class="card ">
+            
+                <div class="card-header">
+                  <span class="me-5">{{customer.name}} </span> 
+                  <a  class="float-left ms-5" href="#" routerLink="/edit/{{customer.id}}"> <i class="fas fa-edit"></i></a>
+                </div>
+                <div class="card-horizontal">
+                <div class="img-square-wrapper">
+                  <img class="" src="http://via.placeholder.com/300x180"  class="rounded" alt="Card image cap">
+              </div>
+                <div class="card-body">
+                  <h5 class="card-title">{{customer.state}}</h5>
+                  <p class="card-text">{{customer.city}}</p>
+                  <a href="#"> Orders</a>
+                </div>
+                </div>
+
+              </div>
+        </div>
+</div>
+

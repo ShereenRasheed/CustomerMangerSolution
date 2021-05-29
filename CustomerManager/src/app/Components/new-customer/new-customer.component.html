@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="row">
+     <div class="col">
+      <h2 ><i class="fa fa-user-plus"></i><span class="ps-2"> Additional Customer</span></h2>
+    </div>
+
+  </div>
+  <div class="row">
+    <div class="d-lg-flex justify-content-center  mt-5 ">
+      <form [formGroup]="addCustomerForm" (ngSubmit)="onSubmit()">
+        <div class="mb-3">
+          <label  class="form-label">Name</label>
+          <input type="text" class="form-control" formControlName="name" maxlength="51">
+          <span class="error" *ngIf="f.name.invalid && (f.name.dirty || f.name.touched)" >
+            <div *ngIf="f.name.errors?.required">
+              Name is required.
+            </div>
+            <div *ngIf="f.name.errors?.maxlength">
+              Name max Length 50 characters long.
+            </div>
+          </span>
+        </div>
+        <div class="mb-3">
+          <label  class="form-label">state</label>
+          <input type="text" class="form-control" formControlName="state">
+          <span class="error" *ngIf="f.state.invalid && (f.state.dirty || f.state.touched)" >
+            <span *ngIf="f.state.errors?.required">
+              Name is required.
+            </span>
+          </span>
+        </div>
+        <div class="mb-3">
+          <label  class="form-label">City</label>
+          <input type="text" class="form-control" formControlName="city">
+          <span class="error" *ngIf="f.city.invalid && (f.city.dirty || f.city.touched)">
+            <span *ngIf="f.city.errors?.required">
+              Name is required.
+            </span>
+          </span>
+        </div>
+        <button type="submit" class="btn btn-primary" [disabled]="!addCustomerForm.valid">Save</button>
+      </form>
+    </div>
+  </div>
+</div>
